@@ -21,7 +21,7 @@ console.log(getSubstring('Hello, World!',0,5));//'Hello'
 
 // Задание 24
 function joinStrings(strings){
-return strings.join(",");
+return strings.join(" ");
 }
 console.log(joinStrings(['Hello','World','from','JavaScript']));//'Hello World from JavaScript'
 
@@ -36,33 +36,36 @@ console.log(convertCase('This should be uppercase'));//'THIS SHOULD BE UPPERCASE
 
 // Задание 26
 function trimSpaces(str){
-
+return str.trim();
 }
-console.log(trimSpaces(' Hello,World! '));//'Hello,World!'
+console.log(trimSpaces(' Hello, World! '));//'Hello,World!'
 
 // Задание 27
 function findCharIndex(str,char){
-
+return str.indexOf(char)
 }
-console.log(findCharIndex('Hello,World!','W'));//7
-console.log(findCharIndex('Hello,World!','z'));//-1
+console.log(findCharIndex('Hello, World!','W'));//7
+console.log(findCharIndex('Hello, World!','z'));//-1
 
 // Задание 28
-function compareStrings(str1,str2){
-
+function compareStrings(str1, str2) {
+    if (str1.length !== str2.length)
+        return false;
+    for (let i = 0; i < str1.length; i++) {
+        if (str1[i] !== str2[i]) {
+            return false;
+        }
+    }
+    return true;
 }
 console.log(compareStrings('Hello','Hello'));//true
 console.log(compareStrings('Hello','hello'));//false
 
 // Задание 29
 function getLastCharacter(str){
-
+   return str !== ""
+    ? str.charAt(str.length-1)
+    : null
 }
 console.log(getLastCharacter('Hello'));//'o'
 console.log(getLastCharacter(''));//null
-
-// Задание 30
-
-// Задание 31
-
-// Задание 32
