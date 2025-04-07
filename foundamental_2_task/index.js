@@ -243,37 +243,161 @@
 //     deleteAge(user);
 //     console.log(user); // {name: "Alice"}
 // Задание 19
-
+// const queue = [];
+// queue.push('Первый', 'Второй', 'Третий');
+// queue.shift();
+// console.log(queue.shift())
+// console.log(queue)
 // Задание 20
-
+// const stack = ['a', 'b', 'c'];
+// stack.push('d');
+// const firstChar = stack.pop();
+// console.log(firstChar)
+// const secondChar = stack.pop();
+// console.log(secondChar);
+// console.log(stack)
 // Задание 21
-
+// const numbers = [3, 5, 7];
+// numbers.unshift(1);
+// numbers.push(9);
+// const firstNum = numbers.shift();
+// console.log(firstNum);
+// const secondNum = numbers.pop();
+// console.log(secondNum);
+// console.log(numbers);
 // Задание 22
-
+// const fruits = ['Апельсин', 'Яблоко', 'Груша'];
+// fruits.unshift('Банан');
+// fruits.pop();
+// fruits.push('Киви');
+// fruits.shift();
+// console.log(fruits);
 // Задание 23
-
+// const data = [1, 2, 3];
+// data.push(4, 5);
+// data.shift();
+// data.unshift(0);
+// const lastChar = data.pop();
+// console.log(lastChar);
+// console.log(data)
 // Задание 24
-
+// const colors = ['Красный', 'Зелёный', 'Синий'];
+// colors.shift();
+// colors.push('Жёлтый');
+// colors.pop();
+// colors.unshift('Фиолетовый');
+// colors.shift();
+// console.log(colors);
 // Задание 25
-
+// let i = 10;
+// while (i >= 1) {
+//     console.log(i);
+//     i--;
+// }
 // Задание 26
-
+// for (let i = 2; i <=10; i++) {
+//     if (i % 2 === 0) {
+//        console.log(i);
+//    }
+// }
+// for (let i = 2; i <= 10; i += 2) {
+//     console.log(i);
+// }
 // Задание 27
-
+// let i = 1;
+// do {
+//     console.log(i);
+//     i++;
+// } while (i <= 5)
 // Задание 28
-
+// const book = {
+//     title: "The Great Gatsby",
+//     author: "F. Scott Fitzgerald",
+//     year: 1925,
+//     genre: "Fiction"
+// };
+// for (let key in book) {
+//     console.log(`${key}: ${book[key]}`);
+// }
 // Задание 29
-
+// const students = [
+//     {name: "Alice", grade: 85},
+//     {name: "Bob", grade: 92},
+//     {name: "Charlie", grade: 88}
+// ];
+// for (let student of students) {
+//     console.log(`${student.name}: ${student.grade}`);
+// }
 // Задание 30
-
+// const numbers = [23, 45, 67, 12, 34, 89, 10];
+// let max = -Infinity // numbers[0]
+// for (let num of numbers) {
+//     if (num > max) {
+//         max = num;
+//     }
+// }
+// console.log(`Максимальное число: ${max}`)
 // Задание 31
-
+// const sentence = "JavaScript is awesome!".split('');
+// let count = 0;
+// for (symb of sentence) {
+//     if (symb !== " " ) {
+//         count ++;
+//     }
+// }
+// console.log(`Количество символов(без пробелов): ${count}`)
 // Задание 32
-
+// const car = {
+//     make: "Tesla",
+//     model: "Model",
+//     year: 2021,
+//     color: "red"
+// };
+// let count = 0;
+// let keys = [];
+// for(key in car){
+//    if (car.hasOwnProperty(key)){
+//        count++;
+//    }
+//    //if (car.hasOwnProperty(key)) {
+//     //         keys.push(key);
+//     //     }
+// }
+// console.log(`Количество свойств: ${count}`);
+// console.log(`Количество свойств: ${keys}`);
 // Задание 33
-
-// Задание 34
-
+// const user = {
+//     firstName: "John",
+//     lastName: "Doe",
+//     age: 25
+// };
+// let result = ' ';
+// for (key in user) {
+//     result = result + user[key] + ' ';
+// }
+// console.log(result.trim())
 // Задание 35
-
+// const person = {
+//     name: "Alice",
+//     age: 25,
+//     occupation: "developer",
+//     salary: 5000
+// };
+// for (key in person) {
+//         if (typeof person[key] === "string") {
+//             console.log(`${key}: ${person[key]}`);
+//         }
+// }
 // Задание 36
+// const students = [
+//     {name: "Alice", grade: 85},
+//     {name: "Bob", grade: 92},
+//     {name: "Charlie", grade: 88}
+//     ];
+// let sum = 0;
+// let result ;
+// for (key of students) {
+//    sum += key.grade;
+// }
+// result = sum/students.length
+// console.log(result)
