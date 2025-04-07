@@ -401,3 +401,54 @@
 // }
 // result = sum/students.length
 // console.log(result)
+// Задание 36
+// const car = {
+//     make: '',
+//     model: '',
+//     year: 2020
+// }
+// let keys = Object.keys(car)
+// for(const key of keys){
+//     console.log(key)
+// }
+// Задание 37
+// const car = {
+//     make: '',
+//     model: '',
+//     year: 2020
+// }
+// let values = Object.values(car)
+// for(const value of values){
+//     console.log(value)
+// }
+// Задание 38
+// const books = {
+//     title: "The Great Gatsby",
+//     author: "F. Scott Fitzgerald",
+//     pages: 2000,
+//     publishedYear: 1925
+// }
+// let count = 0
+// const values = Object.values(books);
+// for (prop in books) {
+//     count++
+// }
+// console.log(count)
+//
+// for (let key in books) {
+//     if (books.hasOwnProperty(key)) {
+//         console.log(`${key}: ${values[count]}`);
+//         count++;
+//     }
+// }
+//
+// console.log(count);
+// Задание 39
+// const student = {
+//     name: "student",
+//     age: 20,
+//     grade: 240
+// }
+// for (let [key, value] of Object.entries(student)) {
+//     console.log(`${key}: ${value}`);
+// }
