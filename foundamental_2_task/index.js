@@ -452,3 +452,70 @@
 // for (let [key, value] of Object.entries(student)) {
 //     console.log(`${key}: ${value}`);
 // }
+// Задание 40
+// function daysUntil() {
+// const today = new Date();
+// const newDate = new Date("2025-04-19T15:00:00");
+// const diffMs = newDate - today;
+// const diffDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+// return diffDays;
+// }
+// console.log(`До дня рождения осталось ${daysUntil("2025-02-23")} дней`);
+// Задание 41
+// function getTimeDifference(date1, date2) {
+//     const diff = Math.abs(date2 - date1);
+//     const totalMin = Math.floor(diff / 60000);
+//     const days = Math.floor(totalMin / 1440);
+//     const hours = Math.floor((totalMin % 1440) / 60);
+//     const minutes = totalMin % 60;
+//     return `${String(days).padStart(2, '0')} дней ` +
+//         `${String(hours).padStart(2, '0')} часов ` +
+//         `${String(minutes).padStart(2, '0')} минут`;
+// }
+// const now = new Date();
+// const target = new Date("2025-04-01T15:00:00");
+// console.log(`С ${target} до ${now} прошло ${getTimeDifference(now, target)}`);
+// Задание 42
+// function countdownOnce(targetDate) {
+//     const now = Date.now();
+//     const end = new Date(targetDate).getTime();
+//     const diff = end - now;
+//     if (diff <= 0) {
+//         return "00 00 00";
+//     }
+//     const totalSec = Math.floor(diff / 1000);
+//     const hours = Math.floor(totalSec / 3600);
+//     const minutes = Math.floor((totalSec % 3600) / 60);
+//     const seconds = totalSec % 60;
+//     const h = String(hours).padStart(2, "0");
+//     const m = String(minutes).padStart(2, "0");
+//     const s = String(seconds).padStart(2, "0");
+//     return `До дня рождения осталось ${h} часов ${m} минут ${s} секунд`;
+// }
+// console.log(countdownOnce("2025-04-19T15:00:00"));
+
+// Задание 43
+// function daysUntilNewYear() {
+//     const now = new Date();
+//     const nextYear = now.getFullYear() + 1;
+//     const newYear = new Date(nextYear, 0, 1);
+//     const diffMs = newYear - now;
+//     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+//     return diffDays;
+// }
+// console.log(`До нового года осталось ${daysUntilNewYear()} дней`);
+// Задание 41
+// function timeSinceStartOfDay() {
+//     const now = new Date();
+//     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+//     const diffMs = now - startOfDay;
+//     const totalSec = Math.floor(diffMs / 1000);
+//     const hours = Math.floor(totalSec / 3600);
+//     const minutes = Math.floor((totalSec % 3600) / 60);
+//     const seconds = totalSec % 60;
+//     const h = String(hours).padStart(2, "0");
+//     const m = String(minutes).padStart(2, "0");
+//     const s = String(seconds).padStart(2, "0");
+//     return `${h} ${m} ${s}`;
+// }
+// console.log(`С начала дня прошло: ${timeSinceStartOfDay()}`);
