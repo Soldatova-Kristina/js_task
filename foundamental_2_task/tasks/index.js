@@ -493,7 +493,7 @@
 //     return `До дня рождения осталось ${h} часов ${m} минут ${s} секунд`;
 // }
 // console.log(countdownOnce("2025-04-19T15:00:00"));
-
+//
 // Задание 43
 // function daysUntilNewYear() {
 //     const now = new Date();
