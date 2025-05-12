@@ -2,7 +2,7 @@ let tasks = [
     {
     title: "F2 practice",
     description: "Complete final task",
-    isCompleted: false,
+    isCompleted: true,
     createdDate: new Date(2025, 4, 8),
     completedDate: new Date()
 },
@@ -17,20 +17,20 @@ let tasks = [
 let completedTaskCount = 0;
 let completedTasks = [];
 
-function showTask() {
+function showTask(tasks) {
     if (tasks.length === 0) {
-        return "Задача отсутствует";
-    } else {
-        console.log("Текущие задачи:");
-
-        tasks.forEach((task, index) => {
-            console.log(`Задача № ${index + 1}:`);
-            for (let [key, value] of Object.entries(task)) {
-                console.log(`${key}: ${value}`);
-            }
-        });
+        console.log("Задачи отсутствуют");
+        return;
     }
-}
+
+        tasks.forEach(({title, description, isCompleted, createdDate, completedDate}, index) => {
+            console.log(`Задача № ${index + 1}:`);
+            console.log(`Заголовок: ${title}`);
+            console.log('Статус:', isCompleted ? "Выполнена" : "Не выполнена");
+            console.log(`Дата создания: ${createdDate}`);
+            console.log(`Дата завершения: ${completedDate}`);
+        })
+    }
 
 function setTask() {
     const newTask = {
@@ -78,7 +78,7 @@ function clearTasks() {
     console.log("Все задачи удалены.");
 }
 
-showTask();
+showTask(tasks);
 setTask();
 completeTask();
 deleteTask();
