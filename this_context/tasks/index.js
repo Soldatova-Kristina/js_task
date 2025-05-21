@@ -26,4 +26,79 @@ function fibonacci (number) {
 }
 console.log(fibonacci(6)); // 8
 console.log(fibonacci(10)); // 55
+// Задание 5
+function createCounter() {
+    let counter = 0;
+    return function () {
+        counter++;
+        console.log(counter);
+    };
+}
+const counter = createCounter();
+counter(); // 1 
+counter(); // 2 
+counter(); // 3
+// Задание 6
+for  (let i = 0; i <= 4; i++)  {
+    setTimeout(function()  {
+        console.log(i++);  //  Что  выведет?
+    },  1000);
+}
+// Через замыкание
+for (var i = 0; i <= 4; i++) {
+    (function(foo) {
+        setTimeout(function () {
+            console.log(foo);
+        }, 1000);
+    })(i);
+}
+// Задание 7
+function rememberValue(value) {
+return function () {
+    return value;
+}
+}
+const rememberTen = rememberValue(10);
+console.log(rememberTen()); // 10
+// Задание 8
+var counterModule = (function() {
+    let counter = 0;
+    return {
+        increment() {
+            counter++;
+            return counter;
+        },
+        reset() {
+            counter = 0;
+        }
+    };
+})();
+
+counterModule.increment();
+counterModule.increment();
+counterModule.reset();
+counterModule.increment();
+// Задание 9
+
+// Задание 10
+
+// Задание 11
+
+// Задание 12
+
+// Задание 13
+
+// Задание 14
+
+// Задание 15
+
+// Задание 16
+
+// Задание 17
+
+// Задание 18
+
+// Задание 19
+
+
 
