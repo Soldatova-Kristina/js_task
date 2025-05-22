@@ -79,13 +79,33 @@ counterModule.increment();
 counterModule.reset();
 counterModule.increment();
 // Задание 9
-
+function multiply(...args) {
+    return args.reduce((acc, val) => acc * val, 1);
+}
+console.log(multiply(5, 5));
 // Задание 10
-
+function concatStrings(word, ...words) {
+    return [word, ...words].join(', ')
+}
+concatStrings('cat', 'dog', 'mama');
 // Задание 11
-
+function combineArrays(arr1, arr2) {
+return [...arr1, ...arr2];
+}
+combineArrays([1, 2, 3],[4, 5, 6]);
 // Задание 12
+const user = {
+    name: "Artem",
+    age: 30
+};
 
+function copyObject(original) {
+    const key = 'city';
+    const value = 'buenos-aires';
+    return {...original, [key]: value};
+}
+
+copyObject(user);
 // Задание 13
 
 // Задание 14
