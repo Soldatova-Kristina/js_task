@@ -143,10 +143,24 @@ const moveBox = setInterval(() => {
     }
 }, 40)
 // Задание 17
-
+function introduce () {
+        console.log(`Hi, my name is ${this.name} and I'am ${this.age} years old`);
+}
+const user1 = {name: "Artem", age: 30};
+const user2 = {name: "Kristina", age: 27};
+introduce.call(user1);
+introduce.call(user2);
 // Задание 18
-
+function sum (num1, num2, num3) {
+    console.log(num1 + num2 + num3);
+}
+sum.apply(null, [1, 2, 3,])
 // Задание 19
-
-
-
+const calculator =  {
+    multiply (num1, num2) {
+        return num1 * num2;
+    }
+}
+const multiplyBy5 = calculator.multiply.bind(null, 5)
+console.log (multiplyBy5 (10));
+console.log (multiplyBy5(4));
