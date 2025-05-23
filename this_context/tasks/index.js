@@ -107,13 +107,41 @@ function copyObject(original) {
 
 copyObject(user);
 // Задание 13
-
+function showMessage(text) {
+    return setTimeout(() => {
+        console.log(text);
+    },5000)
+}
+showMessage('Через 5 секунд будет перезагрузка страницы!');
 // Задание 14
+let count = 10;
+const countDown = setInterval(() => {
+    console.log(count);
+    count--;
+    if (count <= 0) {
+        clearInterval(countDown);
+        console.log('Время вышло!');
+    }
+}, 1000)
 
 // Задание 15
-
+const timer = setInterval(() => {
+    console.log('Таймер работает')
+}, 1000)
+setTimeout(() => {
+    clearInterval(timer);
+    console.log('Таймер остановлен');
+}, 10000)
 // Задание 16
-
+let position = 0;
+const box = document.getElementById('box');
+const moveBox = setInterval(() => {
+    position+=5;
+    box.style.left = position + 'px';
+    if (position + box.offsetWidth >= window.innerWidth) {
+        clearInterval(moveBox);
+    }
+}, 40)
 // Задание 17
 
 // Задание 18
