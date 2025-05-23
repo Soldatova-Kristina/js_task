@@ -17,15 +17,18 @@ let tasks = [
     title: "F2 practice",
     description: "Complete final task",
     isCompleted: true,
-    createdDate: new Date(2025, 4, 8),
-    completedDate: new Date(),
+    createdDate: new Date(2025, 4, 8).toLocaleDateString(),
+    completedDate: new Date(2025, 4, 9).toLocaleDateString(),
+    deadlineDate: new Date(2025, 4, 9).toLocaleDateString(),
+
 },
     {
         title: "Happy husband",
         description: "Make a dinner for husband",
         isCompleted: false,
-        createdDate: new Date(2025, 4, 9),
-        completedDate: new Date()
+        createdDate: new Date(2025, 4, 9).toLocaleDateString(),
+        completedDate: new Date().toLocaleDateString(),
+        deadlineDate: new Date(2025, 5, 23).toLocaleDateString(),
     }
 ];
 let completedTaskCount = 0;
@@ -33,7 +36,7 @@ let completedTasks = [];
 
 tasks.forEach(({description, completedDate}) => {
     console.log("Description:", description ?? "No description");
-    console.log("Competed Date:", completedDate?.toLocaleDateString() ?? "No completed");
+    console.log("Completed Date:", completedDate ?? "No completed");
 })
 
 function showTask(tasks) {
@@ -89,13 +92,18 @@ function completeTask(index) {
 
 function deleteTask(index) {
     const task = tasks[index];
+    if (!task) {
+        console.log("No such task exists.");
+        return;
+    }
+
     if (!task.isCompleted) {
-        const answer = prompt("Task not completed yet, delete? (Yes/No)")
+        const answer = prompt("Task not completed yet, delete? (Yes/No)");
         if (answer === "Yes") {
             tasks = [...tasks.slice(0, index), ...tasks.slice(index + 1)];
-            console.log("Тask deleted")
+            console.log("Task deleted");
         } else {
-            console.log("Task not deleted")
+            console.log("Task not deleted");
         }
     }
 }
@@ -127,6 +135,54 @@ function importTasksFromJSON(jsonStr) {
     }
 }
 
+function remindAboutTask(id, seconds) {
+    const intervalId = setInterval(() => {
+        const task = tasks.find(task => task.id === id);
+        if (!task) {
+            console.log(`task with ${id} not found`);
+            clearInterval(intervalId);
+            return;
+        }
+        if (!task.isCompleted) {
+            console.log(`Reminder: the task ${task.title} is still not completed.`);
+        }else {
+            clearInterval(intervalId);
+        }
+    }, seconds * 1000)
+}
+
+function countdownToDeadline(id) {
+    const task = tasks.find(task => task.id === id);
+
+    if (!task) {
+        console.log(`Task with id ${id} not found.`);
+        return;
+    }
+
+    const intervalId = setInterval(() => {
+        if (task.isCompleted) {
+            console.log(`Task "${task.title}" is already completed.`);
+            clearInterval(intervalId);
+            return;
+        }
+
+        const secondsToDeadline = Math.floor((new Date(task.completedDate) - new Date()) / 1000);
+
+        if (secondsToDeadline <= 0) {
+            console.log(`Today is the deadline for task "${task.title}"!`);
+            clearInterval(intervalId);
+        } else {
+            const daysLeft = Math.ceil(secondsToDeadline / (60 * 60 * 24));
+            console.log(`Task "${task.title}": ${daysLeft} day(s) until deadline.`);
+        }
+    }, 1000);
+}
+
+function assignTaskToUser () {
+   return function notifyAssignment () {
+
+   }
+}
 importTasksFromJSON(exportTasksToJSON())
 exportTasksToJSON();
 showTask(tasks);
@@ -134,3 +190,5 @@ setTask();
 completeTask();
 deleteTask();
 clearTasks();
+remindAboutTask();
+countdownToDeadline()
