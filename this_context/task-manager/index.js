@@ -3,7 +3,7 @@ let completedTaskCount = 0; // Счетчик завершенных задач
 let completedTasks = []; // Массив завершённых задач
 let idCounter = 0; // Генерация уникальных ID
 
-// Заглушка prompt для среды, где prompt не реализован
+// Заглушка prompt для среды где prompt не реализован
 const prompt = (msg) => {
     console.log(msg);
     return "some default value";
@@ -21,17 +21,16 @@ let users = [
 // Начальные задачи
 let tasks = [
     {
-        title: "F2 practice",
         id: ++idCounter,
+        title: "F2 practice",
         description: "Complete final task",
         isCompleted: true,
         createdDate: new Date(2025, 4, 8).toLocaleDateString(),
         completedDate: new Date(2025, 4, 9).toLocaleDateString(),
         deadlineDate: new Date(2025, 4, 9).toLocaleDateString(),
     },
-    {
+    {   id: ++idCounter,
         title: "Learn JS",
-        id: ++idCounter,
         description: "Learn JavaScript using the methodology from Reactify ",
         isCompleted: false,
         createdDate: new Date(2025, 2, 23).toLocaleDateString(),
@@ -53,8 +52,8 @@ function showTask(tasks) {
         return;
     }
     tasks.forEach(({title, description, isCompleted, createdDate, completedDate, deadlineDate, id}) => {
-        console.log(`Title: ${title}`);
         console.log(`ID: ${id}`);
+        console.log(`Title: ${title}`);
         console.log(`Description: ${description}`);
         console.log("Status:", isCompleted ? "Completed" : "Not completed");
         console.log(`Creation date: ${createdDate}`);
@@ -68,8 +67,8 @@ const setTask = (() => {
     return function (...newTasks) {
         if (newTasks.length === 0) {
             const newTask = {
-                title: prompt("Task title"),
                 id: ++idCounter,
+                title: prompt("Task title"),
                 description: prompt("Task description") ?? "No description",
                 isCompleted: false,
                 createdDate: new Date(prompt("Enter creation date (YYYY-MM-DD)")),
@@ -176,7 +175,7 @@ function remindAboutTask(id, seconds) {
 }
 
 
-// Счетчик до от даты создания до дедлайна
+// Счетчик от даты создания до дедлайна
 function countdownToDeadline(id) {
     const task = tasks.find(task => task.id === id);
     if (!task) {
@@ -216,6 +215,7 @@ function assignTaskToUser(user, task) {
 importTasksFromJSON(exportTasksToJSON());
 exportTasksToJSON();
 showTask(tasks);
+
 const newTask = setTask({
     title: "Auto-created task",
     description: "Inserted manually",
@@ -224,6 +224,7 @@ const newTask = setTask({
     completedDate: null,
     deadlineDate: new Date(Date.now() + 86400000).toLocaleDateString()
 });
+
 completeTask(newTask[0].id);
 deleteTask(newTask[0].id);
 assignTaskToUser(users[0], newTask[0]);
