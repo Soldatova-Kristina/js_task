@@ -336,3 +336,4 @@ function withdraw(amount) {
 }
 withdraw(300); // Должно вывести оставшийся баланс и "Transaction completed"
 withdraw(600); // Должно вывести "Insufficient funds" и "Transaction completed"
+
