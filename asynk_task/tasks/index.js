@@ -1,76 +1,76 @@
-// // Задача 1, 2
-// let promise = new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//         let success = true;
-//         if (success) {
-//             resolve("Операция завершена");
-//         } else {
-//             reject("Ошибка операции");
-//         }
-//     }, 2000)
-// })
-//
-// promise.then((result) => {
-//     console.log(result)
-// })
-// .catch((err) => {
-//     console.log(err);
-// })
-// // Задача 3
-// function step (message, ms) {
-//     return new Promise((resolve) =>  setTimeout(() => resolve(message), ms))
-// }
-// step("Первый шаг", 1000)
-// .then((result) => {
-//     console.log(result)
-//     return step("Второй шаг", 1000);
-// })
-// .then ((result) => {
-//     console.log(result);
-//     return step("Третий шаг", 1000);
-// })
-// .then(result => {
-//     console.log(result);
-// });
-// // Задача 4
-// function delay (ms) {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//         resolve("Hello, World")
-//         }, 3000)
-//     })
-// }
-// delay( 3000)
-//     .then ((result) => console.log(result))
-// // Задача 5
-// function getError(message) {
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve(message);
-//         }, 1000);
-//     });
-// }
-//
-// getError("Шаг 1")
-//     .then((result) => {
-//         console.log(result);
-//         return "Шаг 2";
-//     })
-//     .then((step2) => {
-//         throw new Error("Произошла ошибка: сбой на шаге 2");
-//         console.log(step2);
-//         return "Шаг 3";
-//     })
-//     .then((step3) => {
-//         console.log(step3);
-//     })
-//     .catch((err) => {
-//         console.error("Ошибка:", err.message);
-//     })
-//     .finally(() => {
-//         console.log("Цепочка завершена");
-//     });
-// Задача 6/7
+// Задача 1, 2
+let promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let success = true;
+        if (success) {
+            resolve("Операция завершена");
+        } else {
+            reject("Ошибка операции");
+        }
+    }, 2000)
+})
+
+promise.then((result) => {
+    console.log(result)
+})
+.catch((err) => {
+    console.log(err);
+})
+// Задача 3
+function step (message, ms) {
+    return new Promise((resolve) =>  setTimeout(() => resolve(message), ms))
+}
+step("Первый шаг", 1000)
+.then((result) => {
+    console.log(result)
+    return step("Второй шаг", 1000);
+})
+.then ((result) => {
+    console.log(result);
+    return step("Третий шаг", 1000);
+})
+.then(result => {
+    console.log(result);
+});
+// Задача 4
+function delay (ms) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+        resolve("Hello, World")
+        }, 3000)
+    })
+}
+delay( 3000)
+    .then ((result) => console.log(result))
+// Задача 5
+function getError(message) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(message);
+        }, 1000);
+    });
+}
+
+getError("Шаг 1")
+    .then((result) => {
+        console.log(result);
+        return "Шаг 2";
+    })
+    .then((step2) => {
+        throw new Error("Произошла ошибка: сбой на шаге 2");
+        console.log(step2);
+        return "Шаг 3";
+    })
+    .then((step3) => {
+        console.log(step3);
+    })
+    .catch((err) => {
+        console.error("Ошибка:", err.message);
+    })
+    .finally(() => {
+        console.log("Цепочка завершена");
+    });
+// Задача 6
 let promise1 = new Promise ((resolve) => {
     setTimeout(() => {
         resolve("Промис 1")
