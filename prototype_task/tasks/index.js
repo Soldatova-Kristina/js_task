@@ -144,177 +144,216 @@
 // let array = [1, 2, 3, 2, 4, 2]
 // array.countOccurances();
 // Задание 11
-String.prototype.capitalize = function () {
-    return this.charAt(0).toUpperCase() + this.slice(1);
-}
-let str = "hello"
-console.log(str.capitalize());
-// Задание 12
-Number.prototype.isEven = function () {
-    return Number(this) % 2 === 0;
-}
-let num = 2;
-console.log(num.isEven())
-// Задание 13
-function greet(greeting, punctuation) {
-    console.log(`${greeting}, ${this.name}`);
+// String.prototype.capitalize = function () {
+//     return this.charAt(0).toUpperCase() + this.slice(1);
+// }
+// let str = "hello"
+// console.log(str.capitalize());
+// // Задание 12
+// Number.prototype.isEven = function () {
+//     return Number(this) % 2 === 0;
+// }
+// let num = 2;
+// console.log(num.isEven())
+// // Задание 13
+// function greet(greeting, punctuation) {
+//     console.log(`${greeting}, ${this.name}`);
+// }
+//
+// const person = { name: "Артём" };
+// greet.call(person, "Привет");
+// greet.apply(person, ["Здравствуй"]);
+// const boundGreet = greet.bind(person, "Салют");
+// boundGreet();
+// // Задание 14
+// class Person {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     introduce () {
+//         console.log(`Hello ${this.name}! You are ${this.age} years old`);
+//     }
+// }
+// const user = new Person("Артём", 29);
+// user.introduce();
+// // Задание 15
+// class Animal {
+//     constructor() {
+//     }
+//     speak() {
+//         console.log("Птица издает звук")
+//     }
+// }
+// class Bird extends Animal {
+//     speak() {
+//         console.log("Птица чирикает")
+//     }
+// }
+//
+// const smallBird = new Bird;
+// smallBird.speak();
+// // Задание 16
+// class Car {}
+// class Truck{}
+// const track = new Truck();
+//
+// console.log(track instanceof Truck);
+// console.log(track instanceof Car);
+// // Задание 17
+// class Restangle {
+//     constructor(width, height) {
+//         this._width = width;
+//         this._height = height;
+//     }
+//     get getArea() {
+//         return this._width * this._height;
+//     }
+//     set width(value) {
+//         if (value > 0) {
+//             this._width = value;
+//         } else {
+//             console.error("Ширина должна быть больше 0");
+//         }
+//     }
+//     set height(value) {
+//         if (value > 0) {
+//             this._height = value;
+//         } else {
+//             console.error("Высота должна быть больше 0");
+//         }
+//     }
+//     get width() {
+//         return this._width;
+//     }
+//     get height() {
+//         return this._height;
+//     }
+// }
+// const result = new Restangle(2, 5)
+// console.log(result.width);
+// console.log(result.height);
+// console.log(result.getArea);
+// // Задание 18
+// class AppConfig {
+//     static appName= "My Cool App";
+//     static version ="2.0.1";
+// }
+// // Задание 19
+// class MathUtils {
+//     static add (a, b) {
+//         return a + b;
+//     }
+//     subtract (a, b) {
+//         return a - b;
+//     }
+// }
+// // Задание 20
+// class Counter {
+//     static count = 0;
+//     static increment() {
+//         this.count++;
+//     }
+//     static decrement() {
+//         this.count--;
+//     }
+// }
+// // Задание 21
+// class TemperatureConverter {
+//     static toCelsius(fahrenheit) {
+//         return ((fahrenheit - 32) * 5) / 9;
+//     }
+//     static toFahrenheit(celsius) {
+//         return (celsius * 9) / 5 + 32;
+//     }
+// }
+// // Задание 22
+// class Rectangle {
+//     #width
+//     #height
+//    get area () {
+//         return this.#width * this.#height;
+//     }
+//     setDimensions(width, height) {
+//         this.#width = width;
+//         this.#height = height;
+//     }
+// }
+// const rect = new Rectangle();
+// rect.setDimensions(5, 10);
+// console.log(rect.area); // 50
+// // Задание 23
+// class Animal1 {
+//     _name
+//     describe(password) {
+//     }
+// }
+// class Cat extends Animal1 {
+//     meow () {
+//         console.log("Cat meow")
+//     }
+// }
+// // Задание 24
+// class PasswordManager {
+//     #encrypt(password) {
+//         return password + "***" ;
+//     }
+//     setPassword(password) {
+//         this.#encryptedPassword = this.#encrypt(password);
+//     }
+//     getPassword(password) {
+//         return this.#encryptedPassword;
+//     }
+// }
+// // Задание 25
+// class Car2 {
+//     constructor(brand, speed) {
+//         this._brand = brand;
+//         this._speed = speed;
+//     }
+//     accelerate(amount) {
+//         this._speed += amount;
+//     }
+//     getSpeed() {
+//         return this._speed;
+//     }
+// }
+
+// Задача 1: Базовое наследование
+ //Условие: Создайте класс Vehicle с конструктором, принимающим brand, и методом start().
+    // Затем создайте класс Car, наследующий от Vehicle, с дополнительным свойством doors и переопределенным методом start().
+
+class Venicle {
+    constructor (brand) {
+        this.brand = brand;
+    }
+    start () {
+        console.log('Starting Venicle');
+    }
 }
 
-const person = { name: "Артём" };
-greet.call(person, "Привет");
-greet.apply(person, ["Здравствуй"]);
-const boundGreet = greet.bind(person, "Салют");
-boundGreet();
-// Задание 14
-class Person {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
+class Car extends Venicle {
+    constructor (brand, doors) {
+        super(brand);
+        this.doors = doors;
     }
-    introduce () {
-        console.log(`Hello ${this.name}! You are ${this.age} years old`);
-    }
-}
-const user = new Person("Артём", 29);
-user.introduce();
-// Задание 15
-class Animal {
-    constructor() {
-    }
-    speak() {
-        console.log("Птица издает звук")
-    }
-}
-class Bird extends Animal {
-    speak() {
-        console.log("Птица чирикает")
+    start () {
+        console.log('Car starts');
     }
 }
 
-const smallBird = new Bird;
-smallBird.speak();
-// Задание 16
-class Car {}
-class Truck{}
-const track = new Truck();
-
-console.log(track instanceof Truck);
-console.log(track instanceof Car);
-// Задание 17
+//
 class Restangle {
     constructor(width, height) {
-        this._width = width;
-        this._height = height;
+        this.width = width;
+        this.height = height;
     }
-    get getArea() {
-        return this._width * this._height;
+    get area() {
+        return this.width * this.height;
     }
-    set width(value) {
-        if (value > 0) {
-            this._width = value;
-        } else {
-            console.error("Ширина должна быть больше 0");
-        }
-    }
-    set height(value) {
-        if (value > 0) {
-            this._height = value;
-        } else {
-            console.error("Высота должна быть больше 0");
-        }
-    }
-    get width() {
-        return this._width;
-    }
-    get height() {
-        return this._height;
-    }
-}
-const result = new Restangle(2, 5)
-console.log(result.width);
-console.log(result.height);
-console.log(result.getArea);
-// Задание 18
-class AppConfig {
-    static appName= "My Cool App";
-    static version ="2.0.1";
-}
-// Задание 19
-class MathUtils {
-    static add (a, b) {
-        return a + b;
-    }
-    subtract (a, b) {
-        return a - b;
-    }
-}
-// Задание 20
-class Counter {
-    static count = 0;
-    static increment() {
-        this.count++;
-    }
-    static decrement() {
-        this.count--;
-    }
-}
-// Задание 21
-class TemperatureConverter {
-    static toCelsius(fahrenheit) {
-        return ((fahrenheit - 32) * 5) / 9;
-    }
-    static toFahrenheit(celsius) {
-        return (celsius * 9) / 5 + 32;
-    }
-}
-// Задание 22
-class Rectangle {
-    #width
-    #height
-   get area () {
-        return this.#width * this.#height;
-    }
-    setDimensions(width, height) {
-        this.#width = width;
-        this.#height = height;
-    }
-}
-const rect = new Rectangle();
-rect.setDimensions(5, 10);
-console.log(rect.area); // 50
-// Задание 23
-class Animal1 {
-    _name
-    describe(password) {
-    }
-}
-class Cat extends Animal1 {
-    meow () {
-        console.log("Cat meow")
-    }
-}
-// Задание 24
-class PasswordManager {
-    #encrypt(password) {
-        return password + "***" ;
-    }
-    setPassword(password) {
-        this.#encryptedPassword = this.#encrypt(password);
-    }
-    getPassword(password) {
-        return this.#encryptedPassword;
-    }
-}
-// Задание 25
-class Car2 {
-    constructor(brand, speed) {
-        this._brand = brand;
-        this._speed = speed;
-    }
-    accelerate(amount) {
-        this._speed += amount;
-    }
-    getSpeed() {
-        return this._speed;
+    set area (newArea) {
+            const proportion = this.width / this.height;
+            this.width = Math.sqrt(newArea * proportion);
+            this.height = this.width / proportion;
     }
 }
