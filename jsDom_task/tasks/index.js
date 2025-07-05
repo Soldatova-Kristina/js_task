@@ -152,78 +152,174 @@
 // container.style.backgroundColor = "#f0f0f0";
 
 // Задание 4
+//
+// const boxOne = document.getElementById("box1");
+// console.log(boxOne.textContent);
+// const boxTwo = document.getElementById("box2");
+// boxTwo.textContent = "Измененный блок 2";
+//
+// const newDiv = document.createElement("div")
+// const container = document.getElementById("container");
+//     newDiv.classList.add("box");
+//     newDiv.textContent = "Новый блок";
+//     container.append(newDiv);
+//
+// const boxThree = document.getElementById("box3");
+// boxThree.classList.add("highlighted");
+//
+// const boxFour = document.getElementById("box4");
+// boxFour.classList.remove("highlighted");
+//
+// boxOne.setAttribute("data-info", "info1")
+//
+// boxTwo.removeAttribute("data-info");
+//
+// container.appendChild(boxThree);
+//
+// const referenceBox = document.getElementById("referenceBox");
+// const newEl = document.createElement("div")
+// newEl.classList.add("box");
+// newEl.textContent = "Новый блок перед блоком-ссылкой"
+// referenceBox.parentNode.insertBefore(newEl, referenceBox);
+//
+// boxFour.remove();
+//
+// referenceBox.classList.remove("hidden");
+//
+// const p = document.createElement("p");
+// p.textContent = "Текстовый элемент";
+// container.appendChild(p);
+//
+// const div1 = document.createElement("div");
+// const div2 = document.createElement("div");
+// const div3 = document.createElement("div");
+//
+// div1.classList.add("box");
+// div2.classList.add("box");
+// div3.classList.add("box");
+//
+// div1.textContent = "Текст 1";
+// div2.textContent = "Текст 2";
+// div3.textContent = "Текст 3";
+//
+// container.appendChild(div1);
+// container.appendChild(div2);
+// container.appendChild(div3);
+//
+// const newBoxEl = document.createElement("div");
+// newBoxEl.classList.add("box");
+// newBoxEl.textContent = "Новый блок вместо первого"
+// boxOne.replaceWith(newBoxEl);
+//
+// boxThree.before(boxTwo);
+//
+// const newBoxEl2 = document.createElement("div");
+// newBoxEl2.classList.add("box");
+// newBoxEl2.textContent = "Вставленный блок"
+// container.insertBefore(newBoxEl2, boxTwo);
+//
+//
+// const clone = boxThree.cloneNode(true);
+// container.appendChild(clone);
+//
+// boxOne.classList.add("highlighted", "box");
+//
+// boxTwo.classList.toggle("highlighted");
+//
+// boxThree.parentNode.remove();
 
-const boxOne = document.getElementById("box1");
-console.log(boxOne.textContent);
-const boxTwo = document.getElementById("box2");
-boxTwo.textContent = "Измененный блок 2";
+// Задание 5
 
-const newDiv = document.createElement("div")
-const container = document.getElementById("container");
-    newDiv.classList.add("box");
-    newDiv.textContent = "Новый блок";
-    container.append(newDiv);
+// create header
+// const header = document.createElement("header");
+// header.classList.add("header");
+// document.body.appendChild(header);
+//
+// // create headerContainer
+// const headerContainer = document.createElement("div");
+// headerContainer.classList.add("container", "header__container");
+// header.appendChild(headerContainer);
+//
+// // create headerLogo
+// const headerImg = document.createElement("img");
+// headerImg.classList.add("logo", "header__img");
+// headerContainer.appendChild(headerImg);
+//
+// // headerNavigation
+// const headerNavigation = document.createElement("nav");
+// headerNavigation.classList.add("header__navigation");
+// headerContainer.appendChild(headerNavigation);
+//
+// const headerNavigationList = document.createElement("ul");
+// headerNavigationList.classList.add("header__navigation-list");
+// headerNavigation.appendChild(headerNavigationList);
+// // ul li a home navigation
+// const headerNavigationItemHome = document.createElement("li");
+// headerNavigationItemHome.classList.add("header__navigation-item");
+// const headerNavigationLinkHome = document.createElement("a");
+// headerNavigationLinkHome.classList.add("header__navigation-link");
+// headerNavigationLinkHome.textContent = "Home";
+// headerNavigationItemHome.appendChild(headerNavigationLinkHome);
+// headerNavigationList.appendChild(headerNavigationItemHome);
+//
+// // ul li a shop navigation
+// const headerNavigationItemShop = document.createElement("li");
+// headerNavigationItemShop.classList.add("header__navigation-item");
+// const headerNavigationLinkShop = document.createElement("a");
+// headerNavigationLinkShop.classList.add("header__navigation-link");
+// headerNavigationLinkShop.textContent = "Shop";
+// headerNavigationItemShop.appendChild(headerNavigationLinkShop);
+// headerNavigationList.appendChild(headerNavigationItemShop);
+//
+// // headerButtons
+// const headerButtons = document.createElement("nav");
+// headerButtons.classList.add("header__buttons");
+// headerContainer.appendChild(headerButtons);
+//
+// const headerNavigationListButton = document.createElement("ul");
+// headerNavigationListButton.classList.add("header__navigation-list");
+// headerButtons.appendChild(headerNavigationListButton);
+//
+// const headerNavigationItemButton = document.createElement("li");
+// headerNavigationItemButton.classList.add("header__navigation-item");
+// headerNavigationListButton.appendChild(headerNavigationItemButton);
+//
+// const headerNavigationLinkButton = document.createElement("a");
+// headerNavigationLinkButton.classList.add("header__navigation-link");
+// headerNavigationItemButton.appendChild(headerNavigationLinkButton);
+//
+// const buttonImg = document.createElement("img");
+// headerNavigationLinkButton.appendChild(buttonImg);
+//
+// const headerNavigationItemButton2 = document.createElement("li");
+// headerNavigationItemButton2.classList.add("header__navigation-item");
+// headerNavigationListButton.appendChild(headerNavigationItemButton2);
+//
+// const headerNavigationLinkButton2 = document.createElement("a");
+// headerNavigationLinkButton2.classList.add("header__navigation-link");
+// headerNavigationItemButton2.appendChild(headerNavigationLinkButton2);
+//
+// const buttonImg2 = document.createElement("img");
+// headerNavigationLinkButton2.appendChild(buttonImg2);
+//
+// // Для упрощения
+// function headerButtonItemWithImg () {
+//     const li = document.createElement("li");
+//     li.classList.add("header__navigation-item");
+//
+//     const a = document.createElement("a");
+//     a.classList.add("header__navigation-link");
+//
+//     const img = document.createElement("img");
+//
+//     a.appendChild(img);
+//     li.appendChild(a);
+//
+//     return li
+// }
+// headerNavigationLinkButton.appendChild(headerButtonItemWithImg());
+// headerNavigationLinkButton.appendChild(headerButtonItemWithImg());
 
-const boxThree = document.getElementById("box3");
-boxThree.classList.add("highlighted");
 
-const boxFour = document.getElementById("box4");
-boxFour.classList.remove("highlighted");
+// Задание 6
 
-boxOne.setAttribute("data-info", "info1")
-
-boxTwo.removeAttribute("data-info");
-
-container.appendChild(boxThree);
-
-const referenceBox = document.getElementById("referenceBox");
-const newEl = document.createElement("div")
-newEl.classList.add("box");
-newEl.textContent = "Новый блок перед блоком-ссылкой"
-referenceBox.parentNode.insertBefore(newEl, referenceBox);
-
-boxFour.remove();
-
-referenceBox.classList.remove("hidden");
-
-const p = document.createElement("p");
-p.textContent = "Текстовый элемент";
-container.appendChild(p);
-
-const div1 = document.createElement("div");
-const div2 = document.createElement("div");
-const div3 = document.createElement("div");
-
-div1.classList.add("box");
-div2.classList.add("box");
-div3.classList.add("box");
-
-div1.textContent = "Текст 1";
-div2.textContent = "Текст 2";
-div3.textContent = "Текст 3";
-
-container.appendChild(div1);
-container.appendChild(div2);
-container.appendChild(div3);
-
-const newBoxEl = document.createElement("div");
-newBoxEl.classList.add("box");
-newBoxEl.textContent = "Новый блок вместо первого"
-boxOne.replaceWith(newBoxEl);
-
-boxThree.before(boxTwo);
-
-const newBoxEl2 = document.createElement("div");
-newBoxEl2.classList.add("box");
-newBoxEl2.textContent = "Вставленный блок"
-container.insertBefore(newBoxEl2, boxTwo);
-
-
-const clone = boxThree.cloneNode(true);
-container.appendChild(clone);
-
-boxOne.classList.add("highlighted", "box");
-
-boxTwo.classList.toggle("highlighted");
-
-boxThree.parentNode.remove();
