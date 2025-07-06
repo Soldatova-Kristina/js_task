@@ -323,57 +323,104 @@
 
 // Задание 6
 
-const section = document.createElement("section");
-section.classList.add("products");
-document.body.appendChild(section);
+// const section = document.createElement("section");
+// section.classList.add("products");
+// document.body.appendChild(section);
+//
+// const container = document.createElement("div");
+// container.classList.add("container", "products__container");
+// section.appendChild(container);
+//
+// const h2 = document.createElement("h2");
+// h2.classList.add("products__title");
+// container.appendChild(h2);
+//
+// const ulProducts = document.createElement('ul');
+// ulProducts.classList.add("products__list");
+// container.appendChild(ulProducts);
+//
+//
+// function itemProducts () {
+// const li = document.createElement("li");
+// li.classList.add("products__item");
+//
+// const article = document.createElement("article");
+// article.classList.add("product-card");
+//
+// const div = document.createElement("div");
+// div.classList.add("product-card__info");
+//
+// const img = document.createElement("img");
+// img.classList.add("product-card__image");
+//
+// const h4 = document.createElement("h4");
+// h4.classList.add("product-card__title");
+//
+// const p = document.createElement("p");
+// p.classList.add("product-card-description");
+//
+// const button = document.createElement("button");
+// button.classList.add("product-card__button");
+//
+// li.appendChild(article);
+//
+// article.appendChild(div);
+// article.appendChild(button);
+//
+// div.appendChild(img);
+// div.appendChild(h4);
+// div.appendChild(p);
+//
+// return li;
+// }
+//
+// ulProducts.appendChild(itemProducts());
+// ulProducts.appendChild(itemProducts());
+// ulProducts.appendChild(itemProducts());
 
-const container = document.createElement("div");
-container.classList.add("container", "products__container");
-section.appendChild(container);
+// ИЛИ
 
-const h2 = document.createElement("h2");
-h2.classList.add("products__title");
-container.appendChild(h2);
-
-const ulProducts = document.createElement('ul');
-ulProducts.classList.add("products__list");
-container.appendChild(ulProducts);
-
-
-function itemProducts () {
-const li = document.createElement("li");
-li.classList.add("products__item");
-
-const article = document.createElement("article");
-article.classList.add("product-card");
-
-const div = document.createElement("div");
-div.classList.add("product-card__info");
-
-const img = document.createElement("img");
-img.classList.add("product-card__image");
-
-const h4 = document.createElement("h4");
-h4.classList.add("product-card__title");
-
-const p = document.createElement("p");
-p.classList.add("product-card-description");
-
-const button = document.createElement("button");
-button.classList.add("product-card__button");
-
-li.appendChild(article);
-
-article.appendChild(div);
-article.appendChild(button);
-
-div.appendChild(img);
-div.appendChild(h4);
-div.appendChild(p);
-
-return li;
-}
-
-ulProducts.appendChild(itemProducts());
-ulProducts.appendChild(itemProducts());
-ulProducts.appendChild(itemProducts());
+// const products = [
+//     {
+//         title: 'Product 1',
+//         description: 'Description of Product 1',
+//         imageUrl: 'https://via.placeholder.com/100',
+//         buttonText: 'Buy Now'
+//     },
+//     {
+//         title: 'Product 2',
+//         description: 'Description of Product 2',
+//         imageUrl: 'https://via.placeholder.com/100',
+//         buttonText: 'Buy Now'
+//     },
+//     {
+//         title: 'Product 3',
+//         description: 'Description of Product 3',
+//         imageUrl: 'https://via.placeholder.com/100',
+//         buttonText: 'Buy Now'
+//     }
+// ];
+//
+// const productsSection = document.getElementById('products-section');
+//
+// const productsHTML = `
+//   <div class="container products__container">
+//     <h2 class="products__title">Our Products</h2>
+//     <ul class="products__list">
+//       ${products.map(product => `
+//         <li class="products__item">
+//           <article class="product-card">
+//             <div class="product-card__info">
+//               <img class="product-card__image" src="${product.imageUrl}" alt="${product.title}" />
+//               <h4 class="product-card__title">${product.title}</h4>
+//               <p class="product-card__description">${product.description}</p>
+//             </div>
+//             <button class="product-card__button">${product.buttonText}</button>
+//           </article>
+//         </li>
+//       `).join('')}
+//     </ul>
+//   </div>
+// `;
+//
+// productsSection.innerHTML = productsHTML;
