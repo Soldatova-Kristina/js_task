@@ -424,3 +424,108 @@
 // `;
 //
 // productsSection.innerHTML = productsHTML;
+
+// Задание 7
+// const blockOne = document.getElementById("block1");
+// const blockTwo = document.getElementById("block2");
+//
+// function getEffect (element) {
+//     const originalColor = window.getComputedStyle(element).backgroundColor;
+//     element.addEventListener("mouseenter", () => {
+//         element.style.background = "lightgreen";
+//     })
+//     element.addEventListener("mouseleave", () => {
+//         element.style.background = originalColor
+//     })
+// }
+//
+// getEffect(blockOne);
+// getEffect(blockTwo);
+//
+// let timer;
+//
+// const inputOne = document.getElementById("input1");
+// inputOne.addEventListener('input', (e) => {
+//     clearInterval(timer);
+//     timer = setTimeout(() => {
+//         console.log(`${e.target.value}\n`)
+//     }, 500)
+// })
+//
+// const inputTwo = document.getElementById("input2");
+// inputTwo.addEventListener('input', (e) => {
+//     if (!isNaN(e.target.value)) {
+//         console.log(`Вы ввели число: ${e.target.value}`);
+//     }
+// })
+//
+// const btnOne = document.getElementById("btn1");
+// btnOne.addEventListener('click', () => {
+//     const h1 = document.querySelector("h1");
+//     h1.textContent = "Кнопка 1 нажата"
+// })
+//
+// const btnTwo = document.getElementById("btn2");
+// const taskList = document.getElementById("taskList");
+//
+// function getLastNumber () {
+//     const lastLi = document.querySelector("#taskList li:last-child");
+//     return parseInt(lastLi.textContent.replace(/\D/g, ''));
+// }
+//
+// taskCount = getLastNumber();
+//
+// btnTwo.addEventListener('click', () => {
+//     taskCount++
+// const li = document.createElement("li");
+//     li.textContent = `Новая задача ${taskCount}`;
+//     taskList.appendChild(li);
+// })
+//
+// taskList.addEventListener('click', (e) => {
+//     const li = e.target.closest("li");
+//     li.textContent = "Выполнено"
+//     li.style.fontWeight = "bold";
+// })
+
+// Задание 8
+
+// const changeTextButton = document.getElementById("changeTextButton");
+// changeTextButton.addEventListener("click", (e) => {
+//     const text = document.getElementById("textToChange");
+//     text.textContent = "Текст изменен!";
+//     console.log(e.type);
+//     console.log(e.target);
+// })
+//
+//     // const inputField = document.getElementById("inputField");
+//     // inputField.addEventListener("input", (e) => {
+//     //     const logArea = document.getElementById("logArea");
+//     //     logArea.textContent = "Введено: " + e.target.value + "\n";
+//     // }
+//
+// const hoverBox = document.getElementById("hoverBox");
+//
+//
+// hoverBox.addEventListener("mouseenter", (e) => {
+// hoverBox.style.background = "lightgreen"
+//     console.log("Наведение на блок");
+// })
+//
+// hoverBox.addEventListener("mouseleave", (e) => {
+//     hoverBox.style.background = "lightblue"
+//     console.log("Уход с блока");
+// })
+//
+// const preventLink = document.getElementById("preventLink");
+// preventLink.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     console.log("Переход по ссылке отменен")
+// })
+//
+// const body = document.body;
+// const logArea = document.getElementById("logArea");
+// body.addEventListener("click",  (e) => {
+//     const coords = ` Клик: X=${e.clientX}, Y=${e.clientY}`;
+//     logArea.textContent = "Введено: " + e.target.value + coords+ "\n";
+// })
