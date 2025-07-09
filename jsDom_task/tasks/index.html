@@ -287,56 +287,90 @@
 
 <!-- Задание 9 -->
 
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Практика: Работа с формами</title>-->
+<!--    <style>-->
+<!--        .input-error {-->
+<!--            border: 2px solid red;-->
+<!--        }-->
+<!--        .success-message {-->
+<!--            color: green;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Практическое задание: Работа с формами</h1>-->
+
+<!--<form id="testForm" novalidate>-->
+<!--    <label for="username">Имя пользователя:</label>-->
+<!--    <input type="text" id="username" placeholder="Введите имя" required>-->
+<!--    <br><br>-->
+
+<!--    <label for="password">Пароль:</label>-->
+<!--    <input type="password" id="password" placeholder="Введите пароль" required>-->
+<!--    <br><br>-->
+
+<!--    <label for="email">Электронная почта:</label>-->
+<!--    <input type="email" id="email" placeholder="Введите email" required>-->
+<!--    <br><br>-->
+
+<!--    <label for="agreeTerms">Согласен с условиями:</label>-->
+<!--    <input type="checkbox" id="agreeTerms">-->
+<!--    <br><br>-->
+
+<!--    <label for="gender">Ваш пол:</label>-->
+<!--    <select id="gender" required>-->
+<!--        <option value="">Выберите...</option>-->
+<!--        <option value="male">Мужской</option>-->
+<!--        <option value="female">Женский</option>-->
+<!--    </select>-->
+<!--    <br><br>-->
+
+<!--    <button type="submit">Отправить</button>-->
+<!--</form>-->
+
+<!--<div id="logArea"></div>-->
+
+<!--<script src="index.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!-- Задание 10 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практика: Работа с формами</title>
+    <title>Практика с MutationObserver</title>
     <style>
-        .input-error {
-            border: 2px solid red;
+        #itemList li {
+            margin: 5px 0;
         }
-        .success-message {
-            color: green;
-            font-weight: bold;
+        #logArea {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 50px;
         }
-
-
     </style>
 </head>
 <body>
-<h1>Практическое задание: Работа с формами</h1>
+<h1>Практика с MutationObserver</h1>
+<ul id="itemList">
+    <li>Элемент 1</li>
+</ul>
+<button id="addItemBtn">Добавить элемент</button>
+<button id="changeFirstItemBtn">Изменить текст первого элемента</button>
 
-<form id="testForm" novalidate>
-    <label for="username">Имя пользователя:</label>
-    <input type="text" id="username" placeholder="Введите имя" required>
-    <br><br>
-
-    <label for="password">Пароль:</label>
-    <input type="password" id="password" placeholder="Введите пароль" required>
-    <br><br>
-
-    <label for="email">Электронная почта:</label>
-    <input type="email" id="email" placeholder="Введите email" required>
-    <br><br>
-
-    <label for="agreeTerms">Согласен с условиями:</label>
-    <input type="checkbox" id="agreeTerms">
-    <br><br>
-
-    <label for="gender">Ваш пол:</label>
-    <select id="gender" required>
-        <option value="">Выберите...</option>
-        <option value="male">Мужской</option>
-        <option value="female">Женский</option>
-    </select>
-    <br><br>
-
-    <button type="submit">Отправить</button>
-</form>
-
-<div id="logArea"></div>
+<div id="logArea">Логи изменений будут появляться здесь.</div>
 
 <script src="index.js"></script>
 </body>

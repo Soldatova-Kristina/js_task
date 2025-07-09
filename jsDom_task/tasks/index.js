@@ -532,69 +532,135 @@
 
 // Задание 9
 
-const userNameInput = document.getElementById('username');
-userNameInput.addEventListener('input', (e) => {
-    if (e.target.value.length < 3) {
-        e.target.classList.add('input-error');
-    }   e.target.classList.remove('input-error');
-})
+// const userNameInput = document.getElementById('username');
+// userNameInput.addEventListener('input', (e) => {
+//     if (e.target.value.length < 3) {
+//         e.target.classList.add('input-error');
+//     }   e.target.classList.remove('input-error');
+// })
+//
+//
+// const inputs = document.querySelectorAll('input');
+// inputs.forEach(input => {
+//     if  (input.id) {
+//         input.setAttribute('name', input.id);
+//     }
+// })
+//
+// const select = document.querySelectorAll('select');
+// select.forEach(gender => {
+//     if (gender.id) {
+//         gender.setAttribute('name', gender.id);
+//     }
+// })
+//
+// const form = document.getElementById('testForm');
+// const agreeTerms = document.getElementById('agreeTerms');
+// form.addEventListener('submit', (e) => {
+// if (!form.checkValidity() || !agreeTerms.checked) {
+//     e.preventDefault();
+//     alert("Заполните все обязательные поля!")
+//     return
+// }
+//     const formData = new FormData(form);
+//     for (const [key, value] of formData.entries()) {
+//         console.log(`${key}: ${value}`);
+//     }
+// })
+//
+// const logArea = document.getElementById('logArea');
+// const genderSelect = document.getElementById('gender');
+// genderSelect.addEventListener('change', (e) => {
+//     if (e.target.value) {
+//         logArea.textContent = `Вы выбрали: ${e.target.value}`;
+//         } else {
+//         logArea.textContent = '';
+//     }
+// })
+//
+// const formFields = document.querySelectorAll('#testForm input, #testForm select');
+//
+// formFields.forEach((field) => {
+//     field.addEventListener('focus', () => {
+//         logArea.textContent = `Вы редактируете поле: ${field.placeholder || field.id}`;
+//     });
+//
+//     field.addEventListener('blur', () => {
+//         logArea.textContent = '';
+//     });
+// });
 
+// Задание 10
+const itemList = document.getElementById("itemList");
+const addItemBtn = document.getElementById("addItemBtn");
+const changeFirstItemBtn = document.getElementById("changeFirstItemBtn");
+const logArea = document.getElementById("logArea");
 
-const inputs = document.querySelectorAll('input');
-inputs.forEach(input => {
-    if  (input.id) {
-        input.setAttribute('name', input.id);
-    }
-})
-
-const select = document.querySelectorAll('select');
-select.forEach(gender => {
-    if (gender.id) {
-        gender.setAttribute('name', gender.id);
-    }
-})
-
-const form = document.getElementById('testForm');
-const agreeTerms = document.getElementById('agreeTerms');
-form.addEventListener('submit', (e) => {
-if (!form.checkValidity() || !agreeTerms.checked) {
-    e.preventDefault();
-    alert("Заполните все обязательные поля!")
-    return
+function log(message) {
+    const p = document.createElement("p");
+    p.textContent = message;
+    logArea.appendChild(p);
 }
-    const formData = new FormData(form);
-    for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-    }
-})
 
-const logArea = document.getElementById('logArea');
-const genderSelect = document.getElementById('gender');
-genderSelect.addEventListener('change', (e) => {
-    if (e.target.value) {
-        logArea.textContent = `Вы выбрали: ${e.target.value}`;
-        } else {
-        logArea.textContent = '';
-    }
-})
+// MutationObserver
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+            mutation.addedNodes.forEach((node) => {
+                if (node.nodeType === 1) {
+                    log(`Добавлен элемент: ${node.textContent}`);
+                }
+            });
 
-const formFields = document.querySelectorAll('#testForm input, #testForm select');
+            mutation.removedNodes.forEach((node) => {
+                if (node.nodeType === 1) {
+                    log(`Удален элемент: ${node.textContent}`);
+                }
+            });
+        }
 
-formFields.forEach((field) => {
-    field.addEventListener('focus', () => {
-        logArea.textContent = `Вы редактируете поле: ${field.placeholder || field.id}`;
-    });
+        if (mutation.type === "characterData") {
+            log(`Изменён текст: ${mutation.target.textContent}`);
+        }
 
-    field.addEventListener('blur', () => {
-        logArea.textContent = '';
+        if (mutation.type === "attributes") {
+            log(`Изменён атрибут "${mutation.attributeName}" у ${mutation.target.tagName}`);
+        }
     });
 });
 
 
+observer.observe(itemList, {
+    childList: true,
+    subtree: true,
+    characterData: true,
+});
 
 
+observer.observe(addItemBtn, {
+    attributes: true,
+});
 
 
+addItemBtn.addEventListener("click", () => {
+    const newLi = document.createElement("li");
+    newLi.textContent = `Элемент ${itemList.children.length + 1}`;
+    itemList.appendChild(newLi);
+});
+
+
+changeFirstItemBtn.addEventListener("click", () => {
+    const firstLi = itemList.querySelector("li");
+    if (firstLi) {
+        firstLi.textContent = "Текст изменён!";
+    }
+});
+
+
+setTimeout(() => {
+    observer.disconnect();
+    log("Наблюдение остановлено.");
+}, 30000);
 
 
 
