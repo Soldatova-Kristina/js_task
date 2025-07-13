@@ -591,78 +591,124 @@
 // });
 
 // Задание 10
-const itemList = document.getElementById("itemList");
-const addItemBtn = document.getElementById("addItemBtn");
-const changeFirstItemBtn = document.getElementById("changeFirstItemBtn");
-const logArea = document.getElementById("logArea");
+// const itemList = document.getElementById("itemList");
+// const addItemBtn = document.getElementById("addItemBtn");
+// const changeFirstItemBtn = document.getElementById("changeFirstItemBtn");
+// const logArea = document.getElementById("logArea");
+//
+// function log(message) {
+//     const p = document.createElement("p");
+//     p.textContent = message;
+//     logArea.appendChild(p);
+// }
+//
+// // MutationObserver
+// const observer = new MutationObserver((mutations) => {
+//     mutations.forEach((mutation) => {
+//         if (mutation.type === "childList") {
+//             mutation.addedNodes.forEach((node) => {
+//                 if (node.nodeType === 1) {
+//                     log(`Добавлен элемент: ${node.textContent}`);
+//                 }
+//             });
+//
+//             mutation.removedNodes.forEach((node) => {
+//                 if (node.nodeType === 1) {
+//                     log(`Удален элемент: ${node.textContent}`);
+//                 }
+//             });
+//         }
+//
+//         if (mutation.type === "characterData") {
+//             log(`Изменён текст: ${mutation.target.textContent}`);
+//         }
+//
+//         if (mutation.type === "attributes") {
+//             log(`Изменён атрибут "${mutation.attributeName}" у ${mutation.target.tagName}`);
+//         }
+//     });
+// });
+//
+//
+// observer.observe(itemList, {
+//     childList: true,
+//     subtree: true,
+//     characterData: true,
+// });
+//
+//
+// observer.observe(addItemBtn, {
+//     attributes: true,
+// });
+//
+//
+// addItemBtn.addEventListener("click", () => {
+//     const newLi = document.createElement("li");
+//     newLi.textContent = `Элемент ${itemList.children.length + 1}`;
+//     itemList.appendChild(newLi);
+// });
+//
+//
+// changeFirstItemBtn.addEventListener("click", () => {
+//     const firstLi = itemList.querySelector("li");
+//     if (firstLi) {
+//         firstLi.textContent = "Текст изменён!";
+//     }
+// });
+//
+//
+// setTimeout(() => {
+//     observer.disconnect();
+//     log("Наблюдение остановлено.");
+// }, 30000);
 
-function log(message) {
-    const p = document.createElement("p");
-    p.textContent = message;
-    logArea.appendChild(p);
-}
+// Задание 11
 
-// MutationObserver
-const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.type === "childList") {
-            mutation.addedNodes.forEach((node) => {
-                if (node.nodeType === 1) {
-                    log(`Добавлен элемент: ${node.textContent}`);
-                }
-            });
+const li = document.querySelectorAll("li");
 
-            mutation.removedNodes.forEach((node) => {
-                if (node.nodeType === 1) {
-                    log(`Удален элемент: ${node.textContent}`);
-                }
-            });
-        }
+li.forEach(item => {
+    item.addEventListener("click", (e) => {
+        const dataProductId = item.dataset.productId;
+        const productPrice = item.dataset.price;
+        console.log(`ID ${e.target.textContent}: ${dataProductId}, price: ${productPrice}`);
+    })
+})
 
-        if (mutation.type === "characterData") {
-            log(`Изменён текст: ${mutation.target.textContent}`);
-        }
+const addPriceBtn = document.createElement("button");
+addPriceBtn.textContent = "Увеличить цену"
+addPriceBtn.addEventListener("click", () => {
+    li.forEach(item => {
+        let productPrice = parseInt(item.dataset.price);
+        productPrice += 50;
+        item.dataset.price = productPrice;
+        item.textContent = `Product price: ${productPrice}₽`;
+    })
+})
 
-        if (mutation.type === "attributes") {
-            log(`Изменён атрибут "${mutation.attributeName}" у ${mutation.target.tagName}`);
-        }
-    });
-});
+document.body.append(addPriceBtn);
 
 
-observer.observe(itemList, {
-    childList: true,
-    subtree: true,
-    characterData: true,
-});
+const allElements = document.querySelectorAll('.product-list li');
+const addAttribute = document.getElementById("addAttribute");
+addAttribute.addEventListener("click", () => {
+allElements.forEach(item => {
+    if (!item.hasAttribute("data-available")) {
+        item.setAttribute("data-available", "true");
+        item.textContent += "(Доступен)";
+    }
+})
+})
 
-
-observer.observe(addItemBtn, {
-    attributes: true,
-});
-
-
-addItemBtn.addEventListener("click", () => {
-    const newLi = document.createElement("li");
-    newLi.textContent = `Элемент ${itemList.children.length + 1}`;
-    itemList.appendChild(newLi);
-});
-
-
-changeFirstItemBtn.addEventListener("click", () => {
-    const firstLi = itemList.querySelector("li");
-    if (firstLi) {
-        firstLi.textContent = "Текст изменён!";
+const switchAccessibility = document.getElementById("toggleAvailability");
+switchAccessibility.addEventListener("click", () => {
+allElements.forEach(item => {
+    const current = item.getAttribute("data-available");
+    if (current === "true") {
+        item.setAttribute("data-available", "false");
+        item.textContent = item.textContent.replace("(Доступен)", "(Недоступен)");
+    } else {
+        item.setAttribute("data-available", "true");
+        item.textContent = item.textContent.replace("(Недоступен)", "(Доступен)");
     }
 });
-
-
-setTimeout(() => {
-    observer.disconnect();
-    log("Наблюдение остановлено.");
-}, 30000);
-
-
-
-
-
+})

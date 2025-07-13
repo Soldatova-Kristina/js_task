@@ -344,34 +344,56 @@
 
 <!-- Задание 10 -->
 
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Практика с MutationObserver</title>-->
+<!--    <style>-->
+<!--        #itemList li {-->
+<!--            margin: 5px 0;-->
+<!--        }-->
+<!--        #logArea {-->
+<!--            margin-top: 20px;-->
+<!--            border: 1px solid #ccc;-->
+<!--            padding: 10px;-->
+<!--            min-height: 50px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Практика с MutationObserver</h1>-->
+<!--<ul id="itemList">-->
+<!--    <li>Элемент 1</li>-->
+<!--</ul>-->
+<!--<button id="addItemBtn">Добавить элемент</button>-->
+<!--<button id="changeFirstItemBtn">Изменить текст первого элемента</button>-->
+
+<!--<div id="logArea">Логи изменений будут появляться здесь.</div>-->
+
+<!--<script src="index.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!-- Задание 11 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Практика с MutationObserver</title>
-    <style>
-        #itemList li {
-            margin: 5px 0;
-        }
-        #logArea {
-            margin-top: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            min-height: 50px;
-        }
-    </style>
+    <title>Работа с data-* атрибутами</title>
 </head>
 <body>
-<h1>Практика с MutationObserver</h1>
-<ul id="itemList">
-    <li>Элемент 1</li>
+<h1>Список продуктов</h1>
+<ul class="product-list">
+    <li data-product-id="101" data-price="299">Product 1</li>
+    <li data-product-id="102" data-price="399">Product 2</li>
+    <li data-product-id="103" data-price="499">Product 3</li>
 </ul>
-<button id="addItemBtn">Добавить элемент</button>
-<button id="changeFirstItemBtn">Изменить текст первого элемента</button>
 
-<div id="logArea">Логи изменений будут появляться здесь.</div>
-
+<button id="toggleAvailability">Переключить доступность</button>
+<button id="addAttribute">Добавить атрибут доступности</button>
 <script src="index.js"></script>
 </body>
 </html>
