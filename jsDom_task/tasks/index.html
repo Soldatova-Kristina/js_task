@@ -407,6 +407,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Optimization</title>
     <style>
+        #taskContainer {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 100;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid #ccc;
+    }
         .task {
             border: 1px solid #ddd;
             margin: 5px 0;
@@ -416,10 +426,12 @@
 </head>
 <body>
 <h1>Task List</h1>
-<div id="taskContainer"></div>
+<div id="taskContainer">
 <button id="addTasks">Add 1000 Tasks</button>
 <button id="logClicks">Log Clicks</button>
+</div>
 
 <script src="index.js"></script>
 </body>
 </html>
+

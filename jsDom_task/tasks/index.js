@@ -715,16 +715,55 @@
 
 // Задание 12
 
-document.addEventListener("DOMContentLoaded", function() {
-    const fragment = document.createDocumentFragment();
-    const taskContainer = document.getElementById("taskContainer");
-  
+const addTasks = document.getElementById("addTasks");
+const logClicks = document.getElementById("logClicks");
+const taskContainer = document.getElementById("taskContainer");
+
+taskContainer.style.display = "flex";
+taskContainer.style.flexDirection = "column";
+taskContainer.style.alignItems = "flex-start"; 
+
+
+const style = document.createElement('style');
+style.textContent = `
+  .task {
+    display: block;
+    margin: 4px 0;
+  }
+`;
+document.head.appendChild(style);
+
+
+addTasks.addEventListener("click", function() {
+    const fragment = document.createDocumentFragment();  
     for (let i = 0; i < 1000; i++) {
       const newEl = document.createElement("div");
       newEl.classList.add("task");
-      newEl.textContent = `Задача ${i}`;
+      newEl.textContent = `Task ${i}`;
       fragment.appendChild(newEl);
     }
   
     taskContainer.appendChild(fragment);
   });
+
+
+taskContainer.addEventListener("click", function(e) {
+    if (e.target.classList.contains("task")) {
+        console.log(`${e.target.textContent} clicked`);
+    }
+});
+
+function throttle (fn, delay) {
+    let lastTime = 0;
+    return function(...args) {
+        const now = Date.now();
+        if (now - lastTime >= delay) {
+            fn.apply(this, args);
+            lastTime = now;
+        }
+    }
+}
+
+logClicks.addEventListener("click", throttle(() => {
+console.log("mess")
+}, 500))
