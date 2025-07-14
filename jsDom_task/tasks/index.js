@@ -320,7 +320,6 @@
 // headerNavigationLinkButton.appendChild(headerButtonItemWithImg());
 // headerNavigationLinkButton.appendChild(headerButtonItemWithImg());
 
-
 // Задание 6
 
 // const section = document.createElement("section");
@@ -664,51 +663,68 @@
 
 // Задание 11
 
-const li = document.querySelectorAll("li");
+// const li = document.querySelectorAll("li");
 
-li.forEach(item => {
-    item.addEventListener("click", (e) => {
-        const dataProductId = item.dataset.productId;
-        const productPrice = item.dataset.price;
-        console.log(`ID ${e.target.textContent}: ${dataProductId}, price: ${productPrice}`);
-    })
-})
+// li.forEach((item) => {
+//   item.addEventListener("click", (e) => {
+//     const dataProductId = item.dataset.productId;
+//     const productPrice = item.dataset.price;
+//     console.log(
+//       `ID ${e.target.textContent}: ${dataProductId}, price: ${productPrice}`
+//     );
+//   });
+// });
 
-const addPriceBtn = document.createElement("button");
-addPriceBtn.textContent = "Увеличить цену"
-addPriceBtn.addEventListener("click", () => {
-    li.forEach(item => {
-        let productPrice = parseInt(item.dataset.price);
-        productPrice += 50;
-        item.dataset.price = productPrice;
-        item.textContent = `Product price: ${productPrice}₽`;
-    })
-})
+// const addPriceBtn = document.createElement("button");
+// addPriceBtn.textContent = "Увеличить цену";
+// addPriceBtn.addEventListener("click", () => {
+//   li.forEach((item) => {
+//     let productPrice = parseInt(item.dataset.price);
+//     productPrice += 50;
+//     item.dataset.price = productPrice;
+//     item.textContent = `Product price: ${productPrice}₽`;
+//   });
+// });
 
-document.body.append(addPriceBtn);
+// document.body.append(addPriceBtn);
 
+// const allElements = document.querySelectorAll(".product-list li");
+// const addAttribute = document.getElementById("addAttribute");
+// addAttribute.addEventListener("click", () => {
+//   allElements.forEach((item) => {
+//     if (!item.hasAttribute("data-available")) {
+//       item.setAttribute("data-available", "true");
+//       item.textContent += "(Доступен)";
+//     }
+//   });
+// });
+// //
+// const switchAccessibility = document.getElementById("toggleAvailability");
+// switchAccessibility.addEventListener("click", () => {
+//   allElements.forEach((item) => {
+//     const current = item.getAttribute("data-available");
+//     if (current === "true") {
+//       item.setAttribute("data-available", "false");
+//       item.textContent = item.textContent.replace("(Доступен)", "(Недоступен)");
+//     } else {
+//       item.setAttribute("data-available", "true");
+//       item.textContent = item.textContent.replace("(Недоступен)", "(Доступен)");
+//     }
+//   });
+// });
 
-const allElements = document.querySelectorAll('.product-list li');
-const addAttribute = document.getElementById("addAttribute");
-addAttribute.addEventListener("click", () => {
-allElements.forEach(item => {
-    if (!item.hasAttribute("data-available")) {
-        item.setAttribute("data-available", "true");
-        item.textContent += "(Доступен)";
+// Задание 12
+
+document.addEventListener("DOMContentLoaded", function() {
+    const fragment = document.createDocumentFragment();
+    const taskContainer = document.getElementById("taskContainer");
+  
+    for (let i = 0; i < 1000; i++) {
+      const newEl = document.createElement("div");
+      newEl.classList.add("task");
+      newEl.textContent = `Задача ${i}`;
+      fragment.appendChild(newEl);
     }
-})
-})
-
-const switchAccessibility = document.getElementById("toggleAvailability");
-switchAccessibility.addEventListener("click", () => {
-allElements.forEach(item => {
-    const current = item.getAttribute("data-available");
-    if (current === "true") {
-        item.setAttribute("data-available", "false");
-        item.textContent = item.textContent.replace("(Доступен)", "(Недоступен)");
-    } else {
-        item.setAttribute("data-available", "true");
-        item.textContent = item.textContent.replace("(Недоступен)", "(Доступен)");
-    }
-});
-})
+  
+    taskContainer.appendChild(fragment);
+  });
